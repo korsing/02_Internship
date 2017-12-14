@@ -1,0 +1,8 @@
+blacklist = ["apple", "banana", "candy", "dessert"]
+
+
+text = "apple is delicious"
+
+for element in blacklist:
+    if(element in text):
+        pass
