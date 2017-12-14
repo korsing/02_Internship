@@ -1,0 +1,9 @@
+diff a/.idea/workspace.xml b/.idea/workspace.xml	(rejected hunks)
+@@ -2,6 +2,7 @@
+ <project version="4">
+   <component name="ChangeListManager">
+     <list default="true" id="4fec57f9-dc97-406e-902f-4187550485a6" name="Default" comment="">
++      <change type="DELETED" beforePath="$PROJECT_DIR$/FlaskApp/templates/login/login.html" afterPath="" />
+       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FlaskApp/templates/main.html" afterPath="$PROJECT_DIR$/FlaskApp/templates/main.html" />
+     </list>
+     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />

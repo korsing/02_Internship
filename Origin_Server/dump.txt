@@ -1,0 +1,375 @@
+    
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            모니터링
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/monitoring/search_all"> 전체 조회 </a></li>
+                            <li><a href="/monitoring/search_with_option"> 특정 조건 조회 </a></li>
+                        </ul>
+                    </li>
+                    <li class="button"><a href="/homepage"> AWS Auth Simulation <span class="sr-only">(current)</span></a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            모듈테스트
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/module_test/live_media"> Live Media </a></li>
+                            <li><a href="/module_test/vod_media"> VOD Media </a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Configuration
+                            <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                                <li><a href="/configuration/input"> 파일 생성 </a></li>
+                                <li><a href="/configuration/dummy/dummy_file_creator"> Dummy File 생성</a></li>
+                        </ul>
+                    </li>
+                </ul> 
+
+            </div><!-- /.navbar-collapse -->
+    
+
+
+
+
+
+
+
+기존 표 작성 방법
+
+        <tr>
+            <td>1</td>
+            <td>
+                <!-- Large modal -->
+                <a data-toggle="modal" data-target=".bs-example-modal-lg" title="설정 수정">Test1</a>
+                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        hhh
+                    </div>
+                </div>
+                </div>
+            </td>
+            <td>www.naver.com</td>
+            <td>17.08.14</td>
+            <td>Testing for UIs</td>
+            <td>
+                <button type="button" class="btn btn-danger btn-xs">삭제</button>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>
+                <a href="/monitoring/search_all" target="_blank" title="설정 수정">Test2</a>
+            </td>
+            <td>Test2.com/originserver</td>
+            <td>17.08.14</td>
+            <td>Testing for UIs</td>
+            <td>
+                <button type="button" class="btn btn-primary btn-xs">수정</button>
+                <button type="button" class="btn btn-danger btn-xs">삭제</button>
+            </td>
+        </tr>
+
+
+
+new config 팝업창
+                <div id="myModal" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content col-xs-8">
+                        <form action="/configuration/file" method="POST" style="margin-top: 20px;margin-bottom: 20px;margin-left: 20px;margin-right: 20px;">
+                            Configuration Name <input type="text" class="form-control" name="configuration_name"/><br>
+                            Path Name <input type="text" class="form-control" name="path_name"/><br>
+                            Response Code <input type="text" class="form-control" name="response_code"/><br>
+                            Content-Type <input type="text" class="form-control" name="content_type" placeholder="text/html"/><br>
+                            Content-Length <input type="text" class="form-control" name="content_length" placeholder="10000"/><br>
+                            Content-Encoding <input type="text" class="form-control" name="content_encoding" placeholder="gzip"/><br>
+                            Transfer-Encoding <input type="text" class="form-control" name="transfer_encoding" placeholder="chunked"/><br>
+                            Response Custom Header <input type="text" class="form-control" name="response_custom_header"/><br>
+
+                            <br>Body<br>
+                            <input type="radio" name="body" value="text">Text
+                            <input type="radio" name="body" value="file">File<br>
+                            <input type="submit" name="form" value="Submit"/>
+                        </form>
+                        <!-- 이 정보를 DB에 저장  -->
+
+                    </div>
+                </div>
+                </div>
+
+
+기존 파일
+    
+
+
+
+
+
+    if request.form['configuration_name']:
+        configuration_name = request.form['configuration_name']
+
+    if request.form['path_name']:
+        path_name = request.form['path_name']
+
+    if request.form['response_code']:
+        response_code = request.form['response_code']
+
+    if request.form['content_type']:
+        content_type = request.form['content_type']
+    else:
+        content_type = 'text/html; charset=utf-8'
+
+    if request.form['content_length']:
+        content_length = request.form['content_length']
+    else:
+        content_length = '800'
+
+    if request.form['content_encoding']:
+        content_encoding = request.form['content_encoding']
+    else:
+        content_encoding = 'gzip'
+
+    if request.form['transfer_encoding']:
+        transfer_encoding = request.form['transfer_encoding']
+    else:
+        transfer_encoding = 'chunked'
+
+    if request.form['response_custom_header']:
+        rc_header = request.form['response_custom_header']
+
+    if request.form['rc_header2']:
+         rc_header2 = request.form['rc_header2']
+         ch2 = rc_header2.split(":")
+    else:
+         rc_header2 = ''
+
+    if request.form['rc_header3']:
+         rc_header3 = request.form['rc_header3']
+         ch3 = rc_header3.split(":")
+    else:
+         rc_header3 = ''
+
+    if request.form['rc_header4']:
+         rc_header4 = request.form['rc_header4']
+         ch4 = rc_header4.split(":")
+    else:
+         rc_header4 = ''
+
+    if request.form['rc_header5']:
+         rc_header5 = request.form['rc_header5']
+         ch5 = rc_header5.split(":")
+    else:
+         rc_header5 = ''
+
+
+
+
+
+
+
+
+
+    file = request.files.get('file[]').read()
+
+    dict = {'configuration_name': configuration_name,
+             'path_name': path_name,
+             'response_code': response_code,
+             'content_type': content_type,
+             'content_length': content_length,
+             'content_encoding': content_encoding,
+             'transfer_encoding': transfer_encoding,
+             'file': file,
+             'date': '2017.08.21' # Test
+             }
+
+
+    global univ_dict
+    univ_dict = dict
+
+    c, conn = connection()
+    c.execute("SELECT COUNT(*) FROM config")
+    count = c.fetchone()[0]
+    time = datetime.now().strftime('%Y-%m-%d')
+    c.execute("UPDATE config SET config_name = %s, ")
+
+    conn.commit()
+    conn.close()
+
+    return redirect(url_for('homepage'))
+
+
+
+
+
+승각이형 작업내용
+if not data[8] == '':
+        arr = data[8].split("\n")
+        idx = len(arr)
+    # len(arr)하면 index 개수 알 수 있음
+
+    # ':'로 파싱할 필요 있다
+
+    resp = make_response()
+    resp.status_code = data[3]
+    resp.headers['Content-type'] = data[4]
+    resp.headers['Content-Length'] = data[5]
+    resp.headers['Content-Encoding'] = data[6]
+    resp.headers['Transfer-Encoding'] = data[7]
+
+    # if (idx > 0):
+    # ch1 = arr[0].split(":")
+    # resp.headers[ch1[0]] = ch1[1]
+        #
+        # if (idx > 1):
+        #     ch2 = arr[1].split(":")
+        #     resp.headers[ch2[0]] = ch2[1]
+        #
+        #     if (idx > 2):
+        #         ch3 = arr[2].split(":")
+        #         resp.headers[ch3[0]] = ch3[1]
+        #
+        #         if (idx > 3):
+        #             ch4 = arr[3].split(":")
+        #             resp.headers[ch4[0]] = ch4[1]
+        #
+        #             if (idx == 5):
+        #                 ch5 = arr[4].split(":")
+        #                 resp.headers[ch5[0]] = ch5[1]
+
+
+        #
+#     global univ_path
+#     univ_path = path
+    req = request.headers
+
+######## 여기에 request 테이블 db 추가
+
+    return resp
+#     # url = "http://127.0.0.1:5000/" + univ_path
+#
+# #    print("||||||||||||||||||||||||")
+#     # print(requests.get(url))
+# #    print("||||||||||||||||||||||||")
+#
+#     r = make_response(render_template('monitoring/monitoring.html'))
+#     r.status_code = int(univ_dict['response_code'])
+#     r.headers['Content-Length'] = univ_dict['content_length']
+#     r.headers['Content-type'] = univ_dict['content_type']
+# #    r.headers['Date'] = univ_dict['date']
+# #    r.headers['Content-Encoding'] = univ_dict['content_encoding']
+# #    r.headers['Transfer-Encoding'] = univ_dict['transfer_encoding']
+#
+#     if not ch1 == '':
+#         r.headers[ch1[0]] = ch1[1]
+#     if not ch2 == '':
+#         r.headers[ch2[0]] = ch2[1]
+#     if not ch3 == '':
+#         r.headers[ch3[0]] = ch3[1]
+#     if not ch4 == '':
+#         r.headers[ch4[0]] = ch4[1]
+#     if not ch5 == '':
+#         r.headers[ch5[0]] = ch5[1]
+#
+#
+#
+#
+# ##################### log test ####################################
+# #    file_handler = FileHandler('app.log')
+# #    file_handler.setLevel(logging.DEBUG)
+# #    file_handler.setFormatter(
+# #        Formatter('%(asctime)s %(levelname)s %(username)s: %(message)s'))
+# #    app.logger.addHandler(file_handler)
+# #    app.run(debug=True)
+#
+#
+#
+#   #  r_body = univ_dict['file']
+#
+#     print("#######################")
+#     print("Monitoring1 headers")
+#     print(r.headers)
+#     print("#######################")
+#     #r = make_response(render_template('monitoring/monitoring.html', req=req, r_code=r.status_code, r_headers=r.headers, path=path, r_body=r_body))  # Response Headers
+#
+#  #   print("#######################")
+#  #   print("Monitoring2 headers")
+#  #   print(r.headers)
+#  #   print("#######################")
+#
+# #    return render_template("monitoring/monitoring.html")
+#     return r
+
+
+request 날리면 request header 값을 db에 저장
+
+        <!-- <nav style="text-align : center" aria-label="Page navigation">
+    <ul class="pagination">
+        <li>
+        <a href="#" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+        </a>
+        </li>
+        {% for page in range(number) %}
+            <li><a href="/monitoring/{{ page + 1 }}"> {{ page + 1 }}</a></li>
+        {% endfor %}
+        <li>
+        <a href="#" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+        </a>
+        </li>
+    </ul>
+    </nav> -->
+
+
+    
+                                        <form enctype="multipart/form-data" style="margin-top: 20px;margin-bottom: 20px;margin-left: 20px;margin-right: 20px;">
+                                            Method <input type="text" class="form-control" name="configuration_name_edit" value="{{ element[1] }}"/><br>
+                                            Path <input type="text" class="form-control" name="path_name_edit" value="{{element[2]}}"/><br>
+                                            Accept <input type="text" class="form-control" name="response_code_edit" value="{{element[3]}}"/><br>
+                                            Accept-Encoding <input type="text" class="form-control" name="content_type_edit" value="{{element[4]}}"/><br>
+                                            Accept-Language <input type="text" class="form-control" name="content_length_edit" value="{{element[5]}}"/><br>
+                                            Cache-Control <input type="text" class="form-control" name="content_encoding_edit" value="{{element[6]}}"/><br>
+                                            User-Agent <input type="text" class="form-control" name="transfer_encoding_edit" value="{{element[7]}}"/><br>
+                                            Cookie <textarea class="form-control" name="rc_header_edit" id="rc_header1" cols="40" rows="5"/>{{element[8]}}</textarea><br>
+        
+                                            <br>Body<br>
+                                            <input id="text_edit" type="radio" name="body_edit" onclick="showMe_text_edit()">Text
+                                            <input id="file_edit" type="radio" name="body_edit" onclick="showMe_file_edit()">File<br>
+        
+                                            <textarea id="te"  rows="10" cols="72" style="display: none;"></textarea><br>
+                                            <input id="file_upload_edit" name="file[]" multiple="" type="file" style="display: none;"><br>
+                                            <input type="submit" name="form" value="Submit"/>
+        
+                                            <script>
+                                                function showMe_text_edit() {
+                                                    alert("text")
+                                                    document.getElementById("te").style.display = "block"
+                                                    document.getElementById("file_upload_edit").style.display = "none"
+        
+                                                }
+                                                function showMe_file_edit() {
+                                                    alert("file")
+                                                    document.getElementById("textarea_edit").style.display = "block"
+                                                    document.getElementById("file_upload_edit").style.display = "none"
+                                                }
+                                            </script>
+                                        </form>
+
+
+
+            {% start = 0 %}
+            {% end = 15 %}
+            {% if (page <= article//15) %} 
+                {% start = start+(page-1)*15 %} 
+                {% end = start+15 %}
+            {% else %} 
+                {% start = 0+(article//15)*15 %} 
+                {% end = article %} 
+            {% endif %}
